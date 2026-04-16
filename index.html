@@ -1,0 +1,211 @@
+DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Sweet House</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #fdf6f0;
+}
+
+/* NAV */
+nav {
+    background: linear-gradient(to right, #f8c8dc, #fdf6f0);
+    padding: 20px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 40px;
+    animation: fadeIn 2s;
+}
+
+/* PRODUCTS */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.card h3 {
+    color: #d36b9a;
+}
+
+/* BUTTON */
+button {
+    background: #d36b9a;
+    color: white;
+    border: none;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* INSTAGRAM BUTTON */
+.insta-btn {
+    background: #E1306C;
+}
+
+/* CART ICON */
+.cart-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #d36b9a;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* CART */
+.cart {
+    position: fixed;
+    right: -300px;
+    top: 0;
+    width: 280px;
+    height: 100%;
+    background: #ffe4e1;
+    padding: 15px;
+    transition: 0.3s;
+    overflow-y: auto;
+}
+
+.cart.active {
+    right: 0;
+}
+
+.whatsapp {
+    background: #25D366;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>Sweet House </nav>
+
+<div class="hero">
+    <h1>Bienvenue chez Sweet House</h1>
+    <p>Choisissez vos desserts 💕</p>
+</div>
+
+<!-- ICON PANIER -->
+<div class="cart-icon" onclick="toggleCart()">
+    🛒 <span id="count">0</span>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products">
+
+<!-- 12 PRODUITS -->
+
+<div class="card"><img src="c:\Users\hp\Downloads\WhatsApp Image 2026-04-16 at 21.36.59.jpeg"><h3>Cake design</h3><p>À partir de 150DH</p><button onclick="addToCart('Cake design',150)">Ajouter</button></div>
+<div class="card"><img src="c:\Users\hp\Downloads\WhatsApp Image 2026-04-16 at 21.36.59 (1).jpeg"><h3>Cake Fruits</h3><p>À partir de 100DH</p><button onclick="addToCart('Cake Fruits',100)">Ajouter</button></div>
+<div class="card"><img src="c:\Users\hp\Downloads\WhatsApp Image 2026-04-16 at 21.36.59 (2).jpeg"><h3>Cupcake au chocolat</h3><p>7 DH</p><button onclick="addToCart('Cupcake au chocolat',7)">Ajouter</button></div>
+<div class="card"><img src="c:\Users\hp\Downloads\WhatsApp Image 2026-04-16 at 21.37.00.jpeg"><h3>Cupcake au vanille</h3><p>6 DH</p><button onclick="addToCart('Cupcake au vanille',6)">Ajouter</button></div>
+<div class="card"><img src="c:\Users\hp\Downloads\WhatsApp Image 2026-04-16 at 21.37.00 (1).jpeg"><h3>Cupcake au Caramel</h3><p>7 DH</p><button onclick="addToCart('Cupcake au Caramel',7)">Ajouter</button></div>
+<div class="card"><img src="c:\Users\hp\Downloads\WhatsApp Image 2026-04-16 at 21.37.00 (3).jpeg"><h3>Cookies au Chocolat</h3><p>12 DH</p><button onclick="addToCart('Cookies au chocolat',12)">Ajouter</button></div>
+<div class="card"><img src="c:\Users\hp\Downloads\WhatsApp Image 2026-04-16 at 21.37.00 (4).jpeg"><h3>Cheesecake</h3><p></p>A partir de 20DH</p><button onclick="addToCart('Cheesecake',20)">Ajouter</button></div>
+<div class="card"><img src="c:\Users\hp\Downloads\WhatsApp Image 2026-04-16 at 21.37.00 (5).jpeg"><h3>Brownies</h3><p>À partir de 15DH</p><button onclick="addToCart('Brownies',15)">Ajouter</button></div>
+<div class="card"><img src="c:\Users\hp\Downloads\WhatsApp Image 2026-04-16 at 21.37.00 (6).jpeg"><h3>Fondant au chocolat</h3><p>À partir de 20DH</p><button onclick="addToCart('Fondant au chocolat',20)">Ajouter</button></div>
+<div class="card"><img src="c:\Users\hp\Downloads\WhatsApp Image 2026-04-16 at 21.37.00 (7).jpeg"><h3>Petite boîte de macarons</h3><p>À partir de 35DH</p><button onclick="addToCart('Macarons',35)">Ajouter</button></div>
+<div class="card"><img src="c:\Users\hp\Downloads\WhatsApp Image 2026-04-16 at 21.37.00 (8).jpeg"><h3>Gateaux anniversaires</h3><p>A partir de 180DH</p><button onclick="addToCart('Gateaux anniversaires',180)">Ajouter</button></div>
+<div class="card"><img src="c:\Users\hp\Downloads\WhatsApp Image 2026-04-16 at 23.34.24.jpeg"><h3>Banana Bread</h3><p>7 DH</p><button onclick="addToCart('Banana Bread',7)">Ajouter</button></div>
+
+</div>
+
+<!-- PANIER -->
+<div class="cart" id="cart">
+    <h3>🛒 Panier</h3>
+    <ul id="cartList"></ul>
+    <h4 id="total">Total: 0 DH</h4>
+
+    <button class="whatsapp" onclick="sendWhatsApp()">Commander WhatsApp</button>
+    <button class="insta-btn" onclick="openInsta()">Instagram Page</button>
+</div>
+
+<script>
+let cart = [];
+let total = 0;
+
+function addToCart(name, price) {
+    cart.push({name, price});
+
+    let li = document.createElement("li");
+    li.innerText = name + " - " + price + " DH";
+    document.getElementById("cartList").appendChild(li);
+
+    total += price;
+    document.getElementById("total").innerText = "Total: " + total + " DH";
+
+    document.getElementById("count").innerText = cart.length;
+}
+
+function toggleCart() {
+    document.getElementById("cart").classList.toggle("active");
+}
+
+function sendWhatsApp() {
+    if(cart.length === 0){
+        alert("Panier vide !");
+        return;
+    }
+
+    let message = "Commande Sweet House :\n";
+
+    cart.forEach(item => {
+        message += "- " + item.name + " (" + item.price + " DH)\n";
+    });
+
+    message += "\nTotal: " + total + " DH";
+
+    let number = "0724303934"; // بدل رقمك
+    let url = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+}
+
+function openInsta() {
+    window.open("https://www.instagram.com/sweethouse__bakery_?igsh=NTZkdHg2MTB0MTBh"); // بدل بحسابك
+}
+</script>
+
+</body>
+</html>
